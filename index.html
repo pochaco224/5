@@ -1,0 +1,1342 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JANG HAYOON | FOURLEAVES</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --bg: #eee9f3;
+  --light: #faf8fc;
+  --lavender: #d6b9eb;
+  --purple: #a47bc2;
+  --deep: #292330;
+  --silver: #c4c0cd;
+  --gray: #837b8c;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--deep);
+  font-family: 'Noto Sans KR', sans-serif;
+  overflow-x: hidden;
+}
+
+button {
+  font: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible {
+  outline: 2px solid var(--purple);
+  outline-offset: 4px;
+}
+
+/* BACKGROUND */
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: .22;
+  background-image:
+    radial-gradient(circle at 20% 20%, #cbb0e0 1px, transparent 2px),
+    radial-gradient(circle at 80% 70%, #b5a8c2 1px, transparent 2px);
+  background-size: 45px 45px;
+}
+
+.chain-decoration {
+  position: fixed;
+  top: 130px;
+  left: -90px;
+  width: 280px;
+  height: 100px;
+  border: 2px dashed #b9afc3;
+  border-radius: 50%;
+  transform: rotate(-35deg);
+  opacity: .35;
+  pointer-events: none;
+}
+
+.chain-decoration.right {
+  top: auto;
+  left: auto;
+  right: -100px;
+  bottom: 120px;
+  transform: rotate(35deg);
+}
+
+/* HEADER */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(250,248,252,.94);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid #dcd3e2;
+}
+
+.header-inner {
+  max-width: 1250px;
+  min-height: 76px;
+  margin: auto;
+  padding: 0 35px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo {
+  font-size: 19px;
+  font-weight: 900;
+  letter-spacing: 3px;
+  white-space: nowrap;
+}
+
+.logo span {
+  color: var(--purple);
+}
+
+.navigation {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.nav-btn {
+  border: none;
+  background: transparent;
+  padding: 12px 13px;
+  color: #8a8192;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: .25s;
+}
+
+.nav-btn:hover,
+.nav-btn.active {
+  color: #9868b8;
+}
+
+.nav-btn.active {
+  border-bottom: 2px solid #b38acb;
+}
+
+/* MAIN */
+
+main {
+  position: relative;
+  z-index: 1;
+}
+
+.page {
+  display: none;
+  max-width: 1200px;
+  min-height: 800px;
+  margin: auto;
+  padding: 75px 45px 100px;
+}
+
+.page.active {
+  display: block;
+  animation: pageIn .35s ease;
+}
+
+@keyframes pageIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.eyebrow {
+  color: var(--purple);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 4px;
+  margin-bottom: 13px;
+}
+
+.heading {
+  font-size: clamp(35px, 6vw, 58px);
+  font-weight: 900;
+  letter-spacing: -3px;
+}
+
+.subheading {
+  color: var(--gray);
+  font-size: 12px;
+  line-height: 2;
+  margin-top: 12px;
+}
+
+.separator {
+  height: 1px;
+  background: linear-gradient(90deg, #b69acb, transparent);
+  margin: 28px 0;
+}
+
+/* HOME */
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 65px;
+  align-items: center;
+  min-height: 650px;
+}
+
+.hero-visual {
+  position: relative;
+  height: 590px;
+  border: 7px solid white;
+  overflow: hidden;
+  box-shadow: 12px 15px 0 #c9b5d8;
+  background: #d8cce2;
+}
+
+.hero-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+}
+
+.image-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 30px 20px 20px;
+  background: linear-gradient(transparent, #211a2b99);
+  color: white;
+  font-size: 10px;
+  letter-spacing: 4px;
+  font-weight: 800;
+}
+
+.hero-content {
+  position: relative;
+}
+
+.hero-chain {
+  position: absolute;
+  right: 0;
+  top: -50px;
+  font-size: 40px;
+  color: #b5a8c2;
+}
+
+.hero-en {
+  color: #a17aba;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 6px;
+}
+
+.hero-name {
+  font-size: clamp(85px, 13vw, 150px);
+  line-height: 1.1;
+  font-weight: 900;
+  letter-spacing: -9px;
+  color: #b18acb;
+  text-shadow: 4px 4px white;
+  margin: 20px 0 5px;
+}
+
+.hero-korean {
+  font-size: 23px;
+  font-weight: 800;
+  letter-spacing: 12px;
+}
+
+.hero-description {
+  margin-top: 35px;
+  font-size: 12px;
+  line-height: 2.4;
+  color: var(--gray);
+}
+
+.hero-description strong {
+  color: #9169aa;
+}
+
+.main-btn {
+  display: inline-block;
+  margin-top: 35px;
+  padding: 15px 30px;
+  border: 1px solid #b99dca;
+  background: var(--deep);
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  cursor: pointer;
+  transition: .25s;
+}
+
+.main-btn:hover {
+  background: #a47bc2;
+  transform: translateY(-3px);
+}
+
+/* PROFILE */
+
+.profile-layout {
+  display: grid;
+  grid-template-columns: .85fr 1.15fr;
+  gap: 35px;
+  margin-top: 40px;
+}
+
+.profile-image {
+  height: 550px;
+  overflow: hidden;
+  border: 7px solid white;
+  background: #ddd2e6;
+  box-shadow: 8px 8px 0 #c9b5d8;
+}
+
+.profile-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+}
+
+.profile-card {
+  background: white;
+  padding: 32px;
+  border: 1px solid #e2d9e9;
+}
+
+.profile-card h3 {
+  font-size: 27px;
+  font-weight: 900;
+}
+
+.profile-card h3 span {
+  font-size: 13px;
+  color: var(--purple);
+  margin-left: 8px;
+}
+
+.profile-tag {
+  margin-top: 8px;
+  color: #9a82a9;
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 10px;
+  margin-top: 25px;
+}
+
+.stat {
+  padding: 15px;
+  background: #f3eef7;
+}
+
+.stat small {
+  display: block;
+  color: #a48cb4;
+  font-size: 9px;
+  letter-spacing: 2px;
+  margin-bottom: 7px;
+}
+
+.stat strong {
+  font-size: 12px;
+}
+
+.profile-section {
+  margin-top: 28px;
+}
+
+.profile-section h4 {
+  color: #a17aba;
+  font-size: 11px;
+  letter-spacing: 3px;
+  margin-bottom: 10px;
+}
+
+.profile-section p {
+  font-size: 11px;
+  color: #817787;
+  line-height: 2.2;
+}
+
+.gallery {
+  margin-top: 70px;
+}
+
+.gallery img {
+  display: block;
+  width: 100%;
+  max-width: 550px;
+  height: auto;
+  border: 6px solid white;
+  box-shadow: 8px 8px 0 #c9b5d8;
+}
+
+/* GROUP */
+
+.group-visual {
+  position: relative;
+  margin: 35px 0;
+  height: 320px;
+  overflow: hidden;
+  background: #392c48;
+  border: 5px solid white;
+}
+
+.group-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.group-visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #392c483d;
+  pointer-events: none;
+}
+
+.group-title {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-shadow: 0 3px 15px #302439;
+}
+
+.group-title small {
+  font-size: 11px;
+  letter-spacing: 7px;
+}
+
+.group-title h2 {
+  font-size: clamp(35px, 7vw, 75px);
+  font-weight: 900;
+  letter-spacing: 5px;
+}
+
+.member-grid {
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.member {
+  padding: 25px 10px;
+  background: white;
+  border: 1px solid #e0d6e7;
+  text-align: center;
+  cursor: pointer;
+  transition: .25s;
+  color: var(--deep);
+}
+
+.member:hover {
+  transform: translateY(-6px);
+  background: #eee4f5;
+  border-color: #b18acb;
+}
+
+.member-number {
+  font-size: 28px;
+  font-weight: 900;
+  color: #c6add8;
+}
+
+.member h4 {
+  font-size: 12px;
+  margin: 12px 0 5px;
+}
+
+.member p {
+  color: #94889c;
+  font-size: 10px;
+  line-height: 1.8;
+}
+
+.group-info {
+  padding: 23px;
+  margin-top: 25px;
+  background: #e4d9ec;
+  color: #71617f;
+  font-size: 11px;
+  line-height: 2;
+}
+
+/* RELATION */
+
+.relation-card {
+  max-width: 850px;
+  margin-top: 40px;
+  padding: 45px;
+  background: white;
+  border: 1px solid #dfd4e7;
+  box-shadow: 8px 8px 0 #c9b5d8;
+}
+
+.relation-card .label {
+  font-size: 10px;
+  color: #a47bc2;
+  font-weight: 800;
+  letter-spacing: 4px;
+}
+
+.relation-card h3 {
+  font-size: 28px;
+  margin: 20px 0;
+}
+
+.relation-card p {
+  font-size: 12px;
+  color: #82788a;
+  line-height: 2.4;
+}
+
+.dialogue {
+  margin-top: 30px;
+  padding: 23px;
+  background: #f0e9f5;
+  border-left: 3px solid #ae89c6;
+}
+
+.dialogue strong {
+  display: block;
+  color: #a17aba;
+  font-size: 11px;
+  margin-bottom: 10px;
+}
+
+.dialogue p {
+  color: #564b60;
+  font-size: 12px;
+}
+
+/* SECRET */
+
+.secret-card {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 45px;
+  text-align: center;
+  background: white;
+  border: 1px solid #dfd4e7;
+  box-shadow: 8px 8px 0 #c9b5d8;
+}
+
+.lock-icon {
+  font-size: 48px;
+  color: #a47bc2;
+  margin-bottom: 15px;
+}
+
+.secret-card h3 {
+  font-size: 22px;
+  letter-spacing: 3px;
+}
+
+.secret-card > p {
+  font-size: 11px;
+  color: #8b8093;
+  line-height: 2;
+  margin-top: 15px;
+}
+
+.secret-button {
+  margin-top: 25px;
+  padding: 15px 35px;
+  background: #33283d;
+  color: white;
+  border: none;
+  font-size: 10px;
+  letter-spacing: 3px;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.secret-button:hover {
+  background: #a47bc2;
+}
+
+.secret-content {
+  display: none;
+  text-align: left;
+  margin-top: 30px;
+  padding: 25px;
+  background: #f1ebf6;
+}
+
+.secret-content.show {
+  display: block;
+  animation: pageIn .3s ease;
+}
+
+.secret-content h4 {
+  color: #9c74b6;
+  font-size: 11px;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+
+.secret-content p {
+  color: #766c80;
+  font-size: 11px;
+  line-height: 2.2;
+}
+
+.secret-item {
+  margin-bottom: 22px;
+}
+
+/* MODAL */
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  inset: 0;
+  background: #21182bd9;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal.open {
+  display: flex;
+}
+
+.modal-box {
+  position: relative;
+  width: 100%;
+  max-width: 430px;
+  padding: 40px 30px;
+  text-align: center;
+  background: #fbf8fd;
+  border: 1px solid #c8add8;
+  animation: pageIn .3s ease;
+}
+
+.modal-close {
+  position: absolute;
+  right: 15px;
+  top: 12px;
+  border: none;
+  background: none;
+  color: #927d9f;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.modal-box h3 {
+  color: #9e75b8;
+  font-size: 23px;
+  margin: 15px 0;
+}
+
+.modal-box p {
+  font-size: 12px;
+  line-height: 2.2;
+  color: #81768a;
+}
+
+/* FOOTER */
+
+footer {
+  position: relative;
+  z-index: 2;
+  padding: 40px 15px;
+  text-align: center;
+  background: #302638;
+  color: #d5c1e3;
+  font-size: 10px;
+  letter-spacing: 4px;
+}
+
+footer small {
+  display: block;
+  margin-top: 12px;
+  color: #9685a4;
+  font-size: 8px;
+}
+
+/* MOBILE */
+
+@media(max-width: 760px) {
+
+  .header-inner {
+    padding: 15px 12px;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .navigation {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0;
+  }
+
+  .nav-btn {
+    padding: 10px 9px;
+    font-size: 9px;
+  }
+
+  .page {
+    padding: 45px 20px 75px;
+    min-height: 700px;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 35px;
+    padding: 10px 0;
+  }
+
+  .hero-visual {
+    height: 480px;
+    max-width: 450px;
+    width: 100%;
+    margin: auto;
+  }
+
+  .hero-content {
+    text-align: center;
+    padding-bottom: 25px;
+  }
+
+  .hero-name {
+    font-size: 110px;
+  }
+
+  .hero-chain {
+    display: none;
+  }
+
+  .profile-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-image {
+    height: 480px;
+    max-width: 450px;
+    width: 100%;
+    margin: auto;
+  }
+
+  .profile-card {
+    padding: 23px;
+  }
+
+  .member-grid {
+    grid-template-columns: repeat(2,1fr);
+  }
+
+  .member:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .group-visual {
+    height: 230px;
+  }
+
+  .relation-card {
+    padding: 25px;
+  }
+
+  .secret-card {
+    padding: 30px 20px;
+  }
+}
+
+@media(max-width: 380px) {
+  .nav-btn {
+    padding: 9px 6px;
+    font-size: 8px;
+  }
+
+  .hero-visual {
+    height: 410px;
+  }
+
+  .hero-name {
+    font-size: 85px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="chain-decoration"></div>
+<div class="chain-decoration right"></div>
+
+<header>
+  <div class="header-inner">
+
+    <div class="logo">FOUR<span>LEAVES</span></div>
+
+    <nav class="navigation">
+      <button class="nav-btn active" data-page="home">HOME</button>
+      <button class="nav-btn" data-page="profile">PROFILE</button>
+      <button class="nav-btn" data-page="group">GROUP</button>
+      <button class="nav-btn" data-page="relation">RELATION</button>
+      <button class="nav-btn" data-page="secret">SECRET</button>
+    </nav>
+
+  </div>
+</header>
+
+<main>
+
+<!-- HOME -->
+
+<section class="page active" id="home">
+
+  <div class="hero">
+
+    <div class="hero-visual">
+      <img src="IMG_1818.jpeg" alt="Jang Hayoon">
+      <div class="image-caption">
+        FOURLEAVES · OFFICIAL MEMBER
+      </div>
+    </div>
+
+    <div class="hero-content">
+
+      <div class="hero-chain">⛓</div>
+
+      <p class="hero-en">OFFICIAL CHARACTER ARCHIVE</p>
+
+      <h1 class="hero-name">J.</h1>
+
+      <p class="hero-korean">장 하 윤</p>
+
+      <div class="separator"></div>
+
+      <div class="hero-description">
+        <strong>JANG HA YOON · 22</strong><br>
+        FOURLEAVES MAIN RAPPER<br><br>
+        차갑고 도도한 눈빛.<br>
+        무대 위에서는 누구보다 완벽한 아이돌.<br>
+        하지만 사랑 앞에서는 아직 서툰 여자.
+      </div>
+
+      <button class="main-btn" id="homeProfileBtn">
+        VIEW PROFILE &nbsp; ↗
+      </button>
+
+    </div>
+  </div>
+
+</section>
+
+<!-- PROFILE -->
+
+<section class="page" id="profile">
+
+  <p class="eyebrow">01 — PERSONAL INFORMATION</p>
+  <h2 class="heading">PROFILE</h2>
+  <p class="subheading">
+    장하윤 / J / FOURLEAVES
+  </p>
+
+  <div class="profile-layout">
+
+    <div class="profile-image">
+      <img src="IMG_1818.jpeg" alt="장하윤 프로필">
+    </div>
+
+    <div class="profile-card">
+
+      <h3>장하윤 <span>J (제이)</span></h3>
+
+      <p class="profile-tag">FOURLEAVES · MAIN RAPPER</p>
+
+      <div class="separator"></div>
+
+      <div class="stats">
+
+        <div class="stat">
+          <small>AGE</small>
+          <strong>22세</strong>
+        </div>
+
+        <div class="stat">
+          <small>GENDER</small>
+          <strong>여성</strong>
+        </div>
+
+        <div class="stat">
+          <small>HEIGHT</small>
+          <strong>170cm</strong>
+        </div>
+
+        <div class="stat">
+          <small>POSITION</small>
+          <strong>메인 래퍼</strong>
+        </div>
+
+        <div class="stat">
+          <small>HAIR</small>
+          <strong>흑보라색 장발</strong>
+        </div>
+
+        <div class="stat">
+          <small>EYES</small>
+          <strong>보라색</strong>
+        </div>
+
+      </div>
+
+      <div class="profile-section">
+        <h4>PERSONALITY</h4>
+        <p>
+          까칠하고 무심하며 말수가 적다.
+          늘 정중한 존댓말을 사용하지만
+          차가운 표정과 무뚝뚝한 말투 때문에
+          종종 화가 난 사람으로 오해받는다.
+          혼자 자신의 일에 집중하는 것을 좋아한다.
+        </p>
+      </div>
+
+      <div class="profile-section">
+        <h4>CHARACTER</h4>
+        <p>
+          연애 경험이 전혀 없는 모태솔로.
+          지금까지 수많은 구애를 받았지만
+          모두 거절했다. 술에 약하고 의외로
+          간지럼을 잘 탄다.
+          자신의 약점을 남에게 들키는 것을 싫어한다.
+        </p>
+      </div>
+
+      <div class="profile-section">
+        <h4>LOVE TYPE</h4>
+        <p>
+          연애 경험 0회. 누군가를 사랑해 본 적조차 없다.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="gallery">
+
+    <p class="eyebrow">VISUAL ARCHIVE</p>
+    <h2 class="heading" style="font-size:30px;">J'S COLLECTION</h2>
+
+    <div class="separator"></div>
+
+    <img src="IMG_1839.jpeg" alt="장하윤 비주얼 아카이브">
+
+  </div>
+
+</section>
+
+<!-- GROUP -->
+
+<section class="page" id="group">
+
+  <p class="eyebrow">02 — GIRL GROUP</p>
+  <h2 class="heading">FOURLEAVES</h2>
+
+  <p class="subheading">
+    다섯 명의 멤버가 만들어 내는 완벽한 조화.
+    대한민국을 대표하는 인기 걸그룹.
+  </p>
+
+  <div class="group-visual">
+
+    <img src="5E158F14-56F3-4C97-B1F1-E4C489417D35.jpeg"
+         alt="FOURLEAVES">
+
+    <div class="group-title">
+      <small>FIVE MEMBERS · ONE TEAM</small>
+      <h2>FOURLEAVES</h2>
+      <small>OFFICIAL GROUP</small>
+    </div>
+
+  </div>
+
+  <p class="eyebrow">MEMBER POSITION</p>
+  <h2 class="heading" style="font-size:30px;">MEMBERS</h2>
+
+  <div class="member-grid">
+
+    <button class="member" data-member="leader">
+      <div class="member-number">01</div>
+      <h4>LEADER</h4>
+      <p>메인보컬</p>
+    </button>
+
+    <button class="member" data-member="dancer">
+      <div class="member-number">02</div>
+      <h4>DANCER</h4>
+      <p>메인댄서 · 서브보컬</p>
+    </button>
+
+    <button class="member" data-member="rapper">
+      <div class="member-number">03</div>
+      <h4>J · 장하윤</h4>
+      <p>메인래퍼 · 서브보컬</p>
+    </button>
+
+    <button class="member" data-member="vocal">
+      <div class="member-number">04</div>
+      <h4>VOCAL</h4>
+      <p>리드보컬 · 리드댄서</p>
+    </button>
+
+    <button class="member" data-member="center">
+      <div class="member-number">05</div>
+      <h4>CENTER</h4>
+      <p>비주얼 · 막내</p>
+    </button>
+
+  </div>
+
+  <div class="group-info">
+    ✦ FOURLEAVES는 총 5명의 멤버로 구성된 인기 걸그룹이다.
+    각 멤버는 서로 다른 포지션과 매력으로 팀을 완성한다.
+    멤버 카드를 클릭하면 각 포지션의 상세 정보를 확인할 수 있다.
+  </div>
+
+</section>
+
+<!-- RELATION -->
+
+<section class="page" id="relation">
+
+  <p class="eyebrow">03 — PRIVATE RELATIONSHIP</p>
+  <h2 class="heading">YOU & J</h2>
+
+  <p class="subheading">
+    아이돌과 담당 매니저. 그 이상도 이하도 아닌 관계.
+  </p>
+
+  <div class="relation-card">
+
+    <span class="label">CURRENT RELATIONSHIP</span>
+
+    <h3>IDOL × MANAGER</h3>
+
+    <div class="separator"></div>
+
+    <p>
+      {{user}}는 장하윤의 담당 매니저다.
+      스케줄 관리부터 이동, 촬영 및 각종 활동까지
+      그녀의 일정을 가장 가까이에서 관리한다.
+      <br><br>
+      하지만 장하윤에게 {{user}}는 어디까지나
+      업무를 함께하는 매니저일 뿐이다.
+      <br><br>
+      원래부터 남자에게 관심이 없었던 그녀는
+      {{user}}에게도 특별한 호감을 느끼지 못한다.
+      외모 역시 자신의 취향과는 거리가 멀다고 생각한다.
+      <br><br>
+      스케줄 관리가 제대로 이루어지지 않으면
+      정중하지만 차가운 말투로 불만을 표현하기도 한다.
+    </p>
+
+    <div class="dialogue">
+      <strong>J / 장하윤</strong>
+      <p>
+        "매니저님. 오늘 스케줄 확인하신 거 맞으시죠?"
+        <br>
+        "……다음부터는 이런 실수 없었으면 좋겠습니다."
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- SECRET -->
+
+<section class="page" id="secret">
+
+  <p class="eyebrow">04 — RESTRICTED INFORMATION</p>
+  <h2 class="heading">PRIVATE FILE</h2>
+
+  <p class="subheading">
+    일반 프로필에 공개되지 않은 장하윤의 비공개 정보.
+  </p>
+
+  <div class="secret-card">
+
+    <div class="lock-icon">⛓</div>
+
+    <h3>CLASSIFIED DATA</h3>
+
+    <p>
+      해당 정보는 일반 공개 프로필에 포함되지 않습니다.
+      <br>
+      아래 버튼을 클릭하여 정보를 확인하세요.
+    </p>
+
+    <button class="secret-button" id="secretToggle">
+      UNLOCK PROFILE
+    </button>
+
+    <div class="secret-content" id="secretContent">
+
+      <div class="secret-item">
+        <h4>01. ROMANTIC EXPERIENCE</h4>
+        <p>
+          평생 단 한 번도 연애를 해본 적이 없다.
+          누군가를 진심으로 좋아해 본 경험조차 없다.
+        </p>
+      </div>
+
+      <div class="secret-item">
+        <h4>02. SCANDAL</h4>
+        <p>
+          FOURLEAVES 멤버 중 열애 스캔들이
+          가장 적은 멤버. 간혹 다른 아이돌이나
+          배우와의 소문이 생기지만 대부분 빠르게 정리된다.
+        </p>
+      </div>
+
+      <div class="secret-item">
+        <h4>03. WEAKNESS</h4>
+        <p>
+          술에 약하며 의외로 간지럼에도 민감하다.
+          자신의 약점이 드러나는 상황을 매우 부끄러워한다.
+        </p>
+      </div>
+
+      <div class="secret-item">
+        <h4>04. PERSONAL HABIT</h4>
+        <p>
+          먼저 대화를 시작하는 일이 거의 없다.
+          누군가 말을 걸지 않는 이상 묵묵히
+          자신의 일에 집중하는 편이다.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+
+<footer>
+  FOURLEAVES · JANG HA YOON
+  <small>OFFICIAL CHARACTER ARCHIVE · ALL RIGHTS RESERVED</small>
+</footer>
+
+<!-- MEMBER POPUP -->
+
+<div class="modal" id="memberModal" aria-hidden="true">
+
+  <div class="modal-box">
+
+    <button class="modal-close" id="modalClose" aria-label="닫기">
+      ×
+    </button>
+
+    <p class="eyebrow">FOURLEAVES MEMBER</p>
+
+    <h3 id="modalTitle">MEMBER</h3>
+
+    <p id="modalDescription">MEMBER INFORMATION</p>
+
+    <button class="main-btn" id="modalConfirm">
+      CLOSE
+    </button>
+
+  </div>
+
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+  // PAGE NAVIGATION
+
+  const navButtons = document.querySelectorAll('.nav-btn');
+  const pages = document.querySelectorAll('.page');
+
+  function changePage(pageName) {
+
+    pages.forEach(function(page) {
+      page.classList.remove('active');
+    });
+
+    navButtons.forEach(function(button) {
+      button.classList.remove('active');
+    });
+
+    const targetPage = document.getElementById(pageName);
+
+    if (!targetPage) return;
+
+    targetPage.classList.add('active');
+
+    const selectedButton = document.querySelector(
+      '.nav-btn[data-page="' + pageName + '"]'
+    );
+
+    if (selectedButton) {
+      selectedButton.classList.add('active');
+    }
+
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
+
+  navButtons.forEach(function(button) {
+    button.addEventListener('click', function() {
+      changePage(button.dataset.page);
+    });
+  });
+
+  // HOME BUTTON
+
+  document.getElementById('homeProfileBtn')
+    .addEventListener('click', function() {
+      changePage('profile');
+    });
+
+  // MEMBER INFORMATION
+
+  const memberData = {
+
+    leader: {
+      title: 'LEADER · MAIN VOCAL',
+      description: '팀의 중심을 잡아주는 리더이자 폭발적인 가창력을 지닌 메인보컬.'
+    },
+
+    dancer: {
+      title: 'MAIN DANCER',
+      description: '압도적인 퍼포먼스를 담당하는 메인댄서이자 서브보컬.'
+    },
+
+    rapper: {
+      title: 'J · MAIN RAPPER',
+      description: '장하윤. FOURLEAVES의 메인래퍼이자 팀의 카리스마를 담당하는 멤버.'
+    },
+
+    vocal: {
+      title: 'LEAD VOCAL',
+      description: '보컬과 댄스의 균형을 담당하는 리드보컬 겸 리드댄서.'
+    },
+
+    center: {
+      title: 'CENTER · MAKNAE',
+      description: '팀의 얼굴이자 비주얼을 담당하는 화제성 높은 막내.'
+    }
+
+  };
+
+  const modal = document.getElementById('memberModal');
+
+  document.querySelectorAll('.member[data-member]')
+    .forEach(function(button) {
+
+      button.addEventListener('click', function() {
+
+        const member = memberData[button.dataset.member];
+
+        if (!member) return;
+
+        document.getElementById('modalTitle').textContent =
+          member.title;
+
+        document.getElementById('modalDescription').textContent =
+          member.description;
+
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden', 'false');
+
+      });
+
+    });
+
+  // CLOSE MODAL
+
+  function closeModal() {
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+  }
+
+  document.getElementById('modalClose')
+    .addEventListener('click', closeModal);
+
+  document.getElementById('modalConfirm')
+    .addEventListener('click', closeModal);
+
+  modal.addEventListener('click', function(event) {
+    if (event.target === modal) {
+      closeModal();
+    }
+  });
+
+  // SECRET PROFILE
+
+  const secretButton = document.getElementById('secretToggle');
+  const secretContent = document.getElementById('secretContent');
+
+  secretButton.addEventListener('click', function() {
+
+    const isOpen = secretContent.classList.toggle('show');
+
+    secretButton.textContent = isOpen
+      ? 'LOCK PROFILE'
+      : 'UNLOCK PROFILE';
+
+  });
+
+  // ESC KEY
+
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+      closeModal();
+    }
+  });
+
+});
+</script>
+
+</body>
+</html>
